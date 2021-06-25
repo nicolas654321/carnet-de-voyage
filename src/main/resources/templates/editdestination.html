@@ -14,8 +14,7 @@
 		<header th:replace="header.html :: head">your header here</header>
 		<section>
 		
-			<form action="#"  method="POST" th:action="@{/createdestination}" th:object="${destination}">
-			<div class="col w-25 p-3"></div>
+			<form action="#"  method="POST" th:action="@{/updatedestination}" th:object="${destination}">
 			<div class="col">
 					<div class="row">
 						<label>Nom : </label><input type="text" required th:field="*{nom}" >
@@ -30,11 +29,33 @@
 						<label>Date Fin : </label><input type="Date" required th:field="*{dateFin}" >
 					</div>
 					<div class="row">
-        				<input type="submit" value="Créer Destination" class="btn btn-primary">
+        				<input type="submit" value="Mettre à jour la destination" class="btn btn-primary">
         			</div>
 			</div>
-        	<div class="col w-25 p-3"></div>	
+        		
 			</form>
+
+ 			<form action="#"  method="POST" th:action="@{/createetape}" th:object="${etape}">
+				<div class="col">
+						<div class="row">
+							<label>Ville : </label><input type="text" required th:field="*{ville}" >
+						</div>
+						<div class="row">
+							<label>Date venue : </label><input type="Date" required th:field="*{dateVenue}" >
+						</div>
+						<div class="row">
+							<label>Résumé : </label><input type="text" required th:field="*{resume}" >
+						</div>
+						<div th:field="*{destination}"> </div>
+						<div class="row">
+	        				<input type="submit" value="Ajouter Etape" class="btn btn-primary">
+	        			</div>
+				</div>
+			</form>
+
+
+
+
 			
 		</section>
 	<footer class="footer" th:replace="footer.html :: tail"> your footer here</footer>		

@@ -3,6 +3,8 @@ package wcs.nc.carnet.dto;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import wcs.nc.carnet.entity.Destination;
 import wcs.nc.carnet.entity.Lien;
 
@@ -10,6 +12,7 @@ public class EtapeDto {
 
     private Integer id;
     private String ville;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate dateVenue;
     private String resume;
     private List<Lien> liens;

@@ -2,6 +2,7 @@ package wcs.nc.carnet.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,21 +26,34 @@ public class DestinationService {
         return lstDto;
     }
 
-    public void create(DestinationDto aDestination) {
+    public void save(DestinationDto aDestination) {
         destinationRepo.save(convDestinationDtoToDestination(aDestination));
     }
     
-    private Destination convDestinationDtoToDestination(DestinationDto destDto) {
+    public Destination convDestinationDtoToDestination(DestinationDto destDto) {
         
         Destination dest = new Destination(destDto.getNom(),destDto.getPays(), destDto.getDateDebut(), 
                 destDto.getDateFin(), destDto.getLstEtapes());
+        System.out.println("convDto to Dest : ");
         if (destDto.getId() != null ) {
+            System.out.println("Id found : " + destDto.getId());
             dest.setId(destDto.getId());
+        } else {
+            System.out.println("Id not found!");
         }
         return dest;
     }
     
-    private DestinationDto convDestinationToDestinationDto(Destination dest) {
+    public DestinationDto convDestinationToDestinationDto(Destination dest) {
         return new DestinationDto(dest.getId(),dest.getNom(), dest.getPays(), dest.getDateDebut(), dest.getDateFin(), dest.getLstEtapes());
     }
+
+    public DestinationDto findById(Integer aId) {
+        Optional<Destination> optDest = destinationRepo.findById(aId);
+        if (optDest.isPresent()) {
+            return convDestinationToDestinationDto(optDest.get());
+        }
+        return null;
+    }
+
 }

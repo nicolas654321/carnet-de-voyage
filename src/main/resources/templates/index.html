@@ -15,15 +15,25 @@
 		<section>
 			<h1 class="text-center text-primary m-4">Les destinations : </h1>
 			<th:block th:each="destination, state : ${lstdestination}">
-				<td th:text="${destination.nom}">nom</td>
-				<td th:text="${destination.pays}">pays</td>
-				<td th:text="${destination.dateDebut}">date debut</td>
-				<td th:text="${destination.dateFin}">date fin</td>
-
+			
+				<div class="row">
+					<div class="col">							
+						<div th:text="${destination.nom}">nom</div>
+					</div>
+					<div class="col">							
+						<div th:text="${destination.pays}">pays</div>
+					</div>
+					<div class="col">							
+						<div th:text="${destination.dateDebut}">date debut</div>
+					</div>
+					<div class="col">							
+						<div th:text="${destination.dateFin}">date fin</div>
+					</div>
+				</div>
 				<tr th:each="etape : ${destination.lstEtapes}">
-					<td th:text="${etape.ville}">Expense Name</td>
-					<td th:text="${etape.dateVenue}">Expense owner</td>
-					<td th:text="${etape.resume}">Expense amount</td>
+					<td th:text="${etape.ville}">Ville</td>
+					<td th:text="${etape.dateVenue}">date Venue</td>
+					<td th:text="${etape.resume}">resume</td>
     todo  liens
 
 				</tr>

@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "destination")
 public class Destination {
@@ -21,7 +23,9 @@ public class Destination {
     
     private String nom;
     private String pays;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate dateDebut;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate dateFin;
     
     @OneToMany (mappedBy="destination")

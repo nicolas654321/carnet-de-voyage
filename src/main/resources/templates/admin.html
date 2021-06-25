@@ -13,11 +13,35 @@
 	<body>
 		<header th:replace="header.html :: head">your header here</header>
 		<section>
+
+			<h1 class="text-center text-primary m-4">Editer Les destinations : </h1>
+
 		
 			<a href="createdestination">Créer une destination</a>
 			
-			<h1 class="text-center text-primary m-4">Les destinations : </h1>
 			<th:block th:each="destination, state : ${lstdestination}">
+			
+				<div class="row">
+					<div class="col">		
+						<a th:attr="href='editdestination/'+ ${destination.id}" th:text="${destination.nom}">nom</a>
+					</div>
+					<div class="col">							
+						<div th:text="${destination.pays}">pays</div>
+					</div>
+					<div class="col">							
+						<div th:text="${destination.dateDebut}">date debut</div>
+					</div>
+					<div class="col">							
+						<div th:text="${destination.dateFin}">date fin</div>
+					</div>
+				</div>
+				<tr th:each="etape : ${destination.lstEtapes}">
+					<td th:text="${etape.ville}">Ville</td>
+					<td th:text="${etape.dateVenue}">date Venue</td>
+					<td th:text="${etape.resume}">resume</td>
+
+				</tr>
+
 				
 			</th:block>
 		</section>
