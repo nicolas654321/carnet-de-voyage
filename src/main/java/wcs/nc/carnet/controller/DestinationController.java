@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.server.ResponseStatusException;
 
 import wcs.nc.carnet.dto.DestinationDto;
+import wcs.nc.carnet.dto.EtapeDto;
 import wcs.nc.carnet.service.DestinationService;
 
 @Controller
@@ -56,6 +57,7 @@ public class DestinationController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Destination ID not found "+id);
         }
         model.addAttribute("destination", destinationDto);
+        model.addAttribute("etape", new EtapeDto());
         return "editdestination";
     }
     
