@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+	<head>
+		<title>Carnet de voyage</title>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+		<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/bootstrap/css/icons/bootstrap-icons.css">
+		<link rel="stylesheet" href="/css/style.css">
+		<script src="/js/bootstrap.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+
+	<body>
+		<header th:replace="header.html :: head">your header here</header>
+		<section>
+			<h1 class="text-center text-primary m-4">Les destinations : </h1>
+			<th:block th:each="destination, state : ${lstdestination}">
+				
+			</th:block>
+		</section>
+	<footer class="footer" th:replace="footer.html :: tail"> your footer here</footer>		
+	</body>
+</html>
