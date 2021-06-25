@@ -28,6 +28,28 @@ public class Destination {
     @Column(columnDefinition="int")
     private List<Etape> lstEtapes;
 
+    public Destination(int aId, String aNom, String aPays, LocalDate aDateDebut, LocalDate aDateFin, List<Etape> aLstEtapes) {
+        this.id = aId;
+        this.nom = aNom;
+        this.pays = aPays;
+        this.dateDebut = aDateDebut;
+        this.dateFin = aDateFin;
+        this.lstEtapes = aLstEtapes;
+    }
+    
+    
+    public Destination(String aNom, String aPays, LocalDate aDateDebut, LocalDate aDateFin, List<Etape> aLstEtapes) {
+        this.nom = aNom;
+        this.pays = aPays;
+        this.dateDebut = aDateDebut;
+        this.dateFin = aDateFin;
+        this.lstEtapes = aLstEtapes;
+    }
+    
+    public Destination() {
+        
+    }
+    
     public int getId() {
         return id;
     }

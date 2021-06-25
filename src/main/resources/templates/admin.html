@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 	<head>
-		<title>Carnet de voyage</title>
+		<title>Carnet de voyage Administration</title>
 		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 		<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/bootstrap/css/icons/bootstrap-icons.css">
@@ -13,21 +13,11 @@
 	<body>
 		<header th:replace="header.html :: head">your header here</header>
 		<section>
+		
+			<a href="createdestination">Créer une destination</a>
+			
 			<h1 class="text-center text-primary m-4">Les destinations : </h1>
 			<th:block th:each="destination, state : ${lstdestination}">
-				<td th:text="${destination.nom}">nom</td>
-				<td th:text="${destination.pays}">pays</td>
-				<td th:text="${destination.dateDebut}">date debut</td>
-				<td th:text="${destination.dateFin}">date fin</td>
-
-				<tr th:each="etape : ${destination.lstEtapes}">
-					<td th:text="${etape.ville}">Expense Name</td>
-					<td th:text="${etape.dateVenue}">Expense owner</td>
-					<td th:text="${etape.resume}">Expense amount</td>
-    todo  liens
-
-				</tr>
-
 				
 			</th:block>
 		</section>

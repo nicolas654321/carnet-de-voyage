@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+	<head>
+		<title>Carnet de voyage Administration</title>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+		<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/bootstrap/css/icons/bootstrap-icons.css">
+		<link rel="stylesheet" href="/css/style.css">
+		<script src="/js/bootstrap.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+
+	<body>
+		<header th:replace="header.html :: head">your header here</header>
+		<section>
+		
+			<form action="#"  method="POST" th:action="@{/createdestination}" th:object="${destination}">
+			<div class="col">
+					<div class="row">
+						<label>Nom : </label><input type="text" required th:field="*{nom}" >
+					</div>
+					<div class="row">
+						<label>Pays : </label><input type="text" required th:field="*{pays}" >
+					</div>
+					<div class="row">
+						<label>Date Debut : </label><input type="Date" required th:field="*{dateDebut}" >
+					</div>
+					<div class="row">
+						<label>Date Fin : </label><input type="Date" required th:field="*{dateFin}" >
+					</div>
+					<div class="row">
+        				<input type="submit" value="Créer Destination" class="btn btn-primary">
+        			</div>
+			</div>
+        		
+			</form>
+			
+		</section>
+	<footer class="footer" th:replace="footer.html :: tail"> your footer here</footer>		
+	</body>
+</html>

@@ -14,6 +14,17 @@ public class DestinationDto {
     private LocalDate dateFin;
     private List<Etape> lstEtapes;
     
+    public DestinationDto(int aId, String aNom, String aPays, LocalDate aDateDebut, LocalDate aDateFin, List<Etape> aLstEtapes) {
+        this.id = aId;
+        this.nom = aNom;
+        this.pays = aPays;
+        this.dateDebut = aDateDebut;
+        this.dateFin = aDateFin;
+        this.lstEtapes = aLstEtapes;
+    }
+    public DestinationDto() {
+
+    }
     public Integer getId() {
         return id;
     }
